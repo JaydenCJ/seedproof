@@ -1,0 +1,16 @@
+: captured with `curl -sN http://127.0.0.1:8080/v1/chat/completions ... > sse-capture.txt`
+data: {"id":"chatcmpl-001","object":"chat.completion.chunk","model":"local-8b-q4","choices":[{"index":0,"delta":{"role":"assistant"},"logprobs":null,"finish_reason":null}]}
+
+data: {"id":"chatcmpl-001","object":"chat.completion.chunk","model":"local-8b-q4","choices":[{"index":0,"delta":{"content":"The"},"logprobs":{"content":[{"token":"The","logprob":-0.0451,"top_logprobs":[{"token":"The","logprob":-0.0451},{"token":"Sky","logprob":-3.2110}]}]},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-001","object":"chat.completion.chunk","model":"local-8b-q4","choices":[{"index":0,"delta":{"content":" sky"},"logprobs":{"content":[{"token":" sky","logprob":-0.1203,"top_logprobs":[{"token":" sky","logprob":-0.1203},{"token":" color","logprob":-2.4390}]}]},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-001","object":"chat.completion.chunk","model":"local-8b-q4","choices":[{"index":0,"delta":{"content":" appears"},"logprobs":{"content":[{"token":" appears","logprob":-0.3010,"top_logprobs":[{"token":" appears","logprob":-0.3010},{"token":" looks","logprob":-1.4501}]}]},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-001","object":"chat.completion.chunk","model":"local-8b-q4","choices":[{"index":0,"delta":{"content":" blue"},"logprobs":{"content":[{"token":" blue","logprob":-0.0087,"top_logprobs":[{"token":" blue","logprob":-0.0087},{"token":" bright","logprob":-5.0122}]}]},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-001","object":"chat.completion.chunk","model":"local-8b-q4","choices":[{"index":0,"delta":{"content":"."},"logprobs":{"content":[{"token":".","logprob":-0.6520,"top_logprobs":[{"token":".","logprob":-0.6520},{"token":" because","logprob":-0.7412}]}]},"finish_reason":null}]}
+
+data: {"id":"chatcmpl-001","object":"chat.completion.chunk","model":"local-8b-q4","choices":[{"index":0,"delta":{},"logprobs":null,"finish_reason":"stop"}]}
+
+data: [DONE]

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="620" viewBox="0 0 920 620" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14">
+  <!-- Terminal transcript of a real seedproof session (diff + check).
+       Text content is copied from an actual execution of the commands shown,
+       abridged to fit: elisions are marked with "...". See
+       examples/make_runs.py for the demo matrix. -->
+  <rect width="920" height="620" rx="10" fill="#0d1117"/>
+  <rect width="920" height="34" rx="10" fill="#161b22"/>
+  <rect y="20" width="920" height="14" fill="#161b22"/>
+  <circle cx="22" cy="17" r="6" fill="#ff5f57"/>
+  <circle cx="42" cy="17" r="6" fill="#febc2e"/>
+  <circle cx="62" cy="17" r="6" fill="#28c840"/>
+  <text x="460" y="22" fill="#8b949e" text-anchor="middle" font-size="12">seedproof — same seed, different output? prove why.</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> seedproof diff demo-runs/cpu-fp32-seed42.json demo-runs/cuda-fp32-seed42.json</text>
+    <text x="24" y="88">a: cpu-fp32-seed42  cpu  fp32  seed=42  greedy  48 tokens</text>
+    <text x="24" y="112">b: cuda-fp32-seed42  cuda  fp32  seed=42  greedy  48 tokens</text>
+    <text x="24" y="142">first divergent token: <tspan fill="#d29922">index 16</tspan>  (basis: id)</text>
+    <text x="24" y="172" fill="#8b949e" xml:space="preserve">    14  " air"       " air"</text>
+    <text x="24" y="196" fill="#8b949e" xml:space="preserve">    15  " sky"       " sky"</text>
+    <text x="24" y="220" xml:space="preserve"><tspan fill="#f85149">  &gt; 16  " it"        " wavelength"</tspan>  <tspan fill="#d29922">&lt;- first divergence</tspan></text>
+    <text x="24" y="244" fill="#8b949e" xml:space="preserve">    17  " small"     " and"</text>
+    <text x="24" y="268" fill="#8b949e" xml:space="preserve">  ...</text>
+    <text x="24" y="298">verdict: <tspan fill="#d29922">backend-numerics</tspan> (confidence: <tspan fill="#7ee787">high</tspan>)</text>
+    <text x="24" y="322" xml:space="preserve">  same config on a different backend; first divergence at token 16: " it" vs " wavelength"</text>
+    <text x="24" y="346">evidence:</text>
+    <text x="24" y="370" xml:space="preserve">  - [config] backend: "cpu" -&gt; "cuda"</text>
+    <text x="24" y="394" xml:space="preserve">  - [<tspan fill="#7ee787">tie-break</tspan>] the losing token trailed the winner by only <tspan fill="#7ee787">0.0017 nats</tspan> (&lt;= epsilon 0.05) <tspan fill="#8b949e">...</tspan></text>
+    <text x="24" y="418" xml:space="preserve">  - [prefix-drift] mean |dlogprob| 0.0042 over 16 shared tokens, max 0.0084 at token 0</text>
+    <text x="24" y="442" xml:space="preserve">  - [resync] streams never reconverge after the divergence</text>
+    <text x="24" y="482"><tspan fill="#7ee787">$</tspan> seedproof check demo-runs &amp;&amp; echo reproducible</text>
+    <text x="24" y="508"><tspan fill="#f85149">FAIL:</tspan> 5 runs split into 3 distinct streams</text>
+    <text x="24" y="534" fill="#8b949e" xml:space="preserve">CLASS  RUNS  TOKENS  STREAM        MEMBERS</text>
+    <text x="24" y="558" fill="#8b949e" xml:space="preserve">A      3     48      53c9a33756a4  cpu-fp32-rerun, cpu-fp32-seed42, cpu-fp32-seed7</text>
+    <text x="24" y="582" fill="#8b949e" xml:space="preserve">B      1     48      45bec5aed400  cpu-q4-seed42   <tspan fill="#8b949e">...</tspan></text>
+  </g>
+</svg>
